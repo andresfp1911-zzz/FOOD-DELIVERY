@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Food Delivery: hamburguesas, pollo, papas y mucho más.">
+    <title>Food Delivery | Pide ahora</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="#inicio" class="logo">
+            FOOD<span>DELIVERY</span>
+        </a>
+
+        <nav class="navbar" id="navbar">
+            <a href="#inicio">Inicio</a>
+            <a href="#menu">Menú</a>
+            <a href="#promociones">Promociones</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+        <button class="cart-button" id="cart-button">
+            🛒 Carrito <span id="cart-count">0</span>
+        </button>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+            ☰
+        </button>
+    </header>
+
+    <main>
+
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <span class="tag">¡EL SABOR QUE TE ENCANTA!</span>
+
+                <h1>EL ANTOJO<br>NO ESPERA.</h1>
+
+                <p>
+                    Hamburguesas, papas, pollo y mucho más.
+                    Tu comida favorita está a un clic de distancia.
+                </p>
+
+                <a href="#menu" class="primary-button">VER MENÚ →</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=900" alt="Hamburguesa con queso">
+            </div>
+        </section>
+
+        <section class="benefits" id="nosotros">
+            <article>
+                <span>🚀</span>
+                <h3>Entrega rápida</h3>
+                <p>Tu pedido llega a tu puerta.</p>
+            </article>
+
+            <article>
+                <span>🍔</span>
+                <h3>Gran variedad</h3>
+                <p>Opciones para todos los gustos.</p>
+            </article>
+
+            <article>
+                <span>🔒</span>
+                <h3>Pago seguro</h3>
+                <p>Elige cómo quieres pagar.</p>
+            </article>
+        </section>
+
+        <section class="menu-section" id="menu">
+            <div class="section-heading">
+                <span class="tag">NUESTRO MENÚ</span>
+                <h2>¡ELIGE TU FAVORITO!</h2>
+                <p>Descubre todo lo que tenemos para ti.</p>
+            </div>
+
+            <input
+                type="search"
+                id="search-input"
+                class="search-input"
+                placeholder="Buscar comida..."
+                aria-label="Buscar productos"
+            >
+
+            <div class="categories" id="categories">
+                <button class="category active" data-category="Todos">Todos</button>
+                <button class="category" data-category="Hamburguesas">🍔 Hamburguesas</button>
+                <button class="category" data-category="Pollo">🍗 Pollo</button>
+                <button class="category" data-category="Papas">🍟 Papas</button>
+                <button class="category" data-category="Bebidas">🥤 Bebidas</button>
+                <button class="category" data-category="Postres">🍦 Postres</button>
+            </div>
+
+            <div class="products-grid" id="products-grid"></div>
+        </section>
+
+        <section class="promotion" id="promociones">
+            <div>
+                <span class="tag">PROMOCIÓN ESPECIAL</span>
+                <h2>¡COMPARTE EL SABOR!</h2>
+                <p>Disfruta de tus favoritos y comparte buenos momentos.</p>
+                <a href="#menu" class="primary-button">ORDENAR AHORA</a>
+            </div>
+
+            <div class="promotion-image">
+                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=700" alt="Hamburguesa especial">
+            </div>
+        </section>
+
+        <section class="checkout-section" id="checkout">
+            <div class="section-heading">
+                <span class="tag">TU PEDIDO</span>
+                <h2>FINALIZA TU COMPRA</h2>
+            </div>
+
+            <div class="checkout-container">
+
+                <div class="cart-panel" id="cart-panel">
+                    <h3>🛒 Resumen del carrito</h3>
+
+                    <div id="cart-items">
+                        <p class="empty-cart">Todavía no has agregado productos.</p>
+                    </div>
+
+                    <div class="totals">
+                        <p>Subtotal: <strong id="subtotal">$0.00</strong></p>
+                        <p>Envío: <strong id="shipping">$0.00</strong></p>
+                        <h3>Total: <strong id="total">$0.00</strong></h3>
+                    </div>
+                </div>
+
+                <form class="delivery-form" id="delivery-form">
+                    <h3>📍 Datos de entrega</h3>
+
+                    <label for="name">Nombre completo</label>
+                    <input type="text" id="name" placeholder="Tu nombre" required>
+
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" placeholder="Tu número de teléfono" required>
+
+                    <label for="address">Dirección de entrega</label>
+                    <input type="text" id="address" placeholder="Calle, carrera, número..." required>
+
+                    <label for="notes">Observaciones</label>
+                    <textarea id="notes" placeholder="Indicaciones adicionales (opcional)"></textarea>
+
+                    <h3>💳 Método de pago</h3>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="Efectivo" required>
+                        Efectivo
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="Tarjeta">
+                        Tarjeta
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="Pago digital">
+                        Pago digital
+                    </label>
+
+                    <button type="submit" class="primary-button confirm-button">
+                        CONFIRMAR PEDIDO
+                    </button>
+
+                    <p id="confirmation-message" role="status"></p>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contacto">
+        <a href="#inicio" class="logo footer-logo">
+            FOOD<span>DELIVERY</span>
+        </a>
+
+        <p>El sabor que llega hasta tu puerta.</p>
+        <p>© 2026 Food Delivery. Proyecto académico ficticio.</p>
+    </footer>
+
+    <div id="toast" class="toast" role="status"></div>
+
+    <script src="js/script.js  "></script>
+</body>
+</html>

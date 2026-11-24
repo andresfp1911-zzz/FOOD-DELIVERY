@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Food Delivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="Food Delivery, ir al inicio">
+      <span class="brand-mark" aria-hidden="true">FD</span>
+      <span>FOOD <b>DELIVERY</b></span>
+    </a>
+
+    <nav class="nav" id="main-nav" aria-label="Navegacion principal">
+      <a class="nav-link active" href="#inicio">Inicio</a>
+      <a class="nav-link" href="#menu">Menu</a>
+      <a class="nav-link" href="#promociones">Promociones</a>
+      <a class="nav-link" href="#nosotros">Nosotros</a>
+    </nav>
+
+    <button class="cart-button" id="open-cart" type="button" aria-label="Abrir carrito">
+      <span aria-hidden="true">&#128722;</span>
+      <span class="cart-label">Mi pedido</span>
+      <span class="cart-count" id="cart-count">0</span>
+    </button>
+
+    <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow">Envio rapido a tu puerta</span>
+        <h1>Tu antojo favorito<br><span>en un solo toque.</span></h1>
+        <p>Hamburguesas, snacks y bebidas preparadas al momento.</p>
+        <a class="primary-button" href="#menu">Ver el menu <span>&rarr;</span></a>
+      </div>
+      <div class="hero-art" aria-label="Hamburguesa ilustrada">
+        <div class="hero-badge"><strong>25%</strong><span>OFF</span></div>
+        <img class="hero-burger" src="imagenes/burger-doble.jpg" alt="Hamburguesa con carne, queso y vegetales">
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Beneficios">
+      <article><span>&#9889;</span><div><strong>Entrega rapida</strong><small>En menos de 30 min</small></div></article>
+      <article><span>&#10003;</span><div><strong>Calidad garantizada</strong><small>Ingredientes frescos</small></div></article>
+      <article><span>&#9749;</span><div><strong>Siempre disponible</strong><small>Todos los dias</small></div></article>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Elige tus favoritos</span>
+          <h2>Explora el menu</h2>
+        </div>
+        <label class="search-box">
+          <span aria-hidden="true">&#128269;</span>
+          <input id="search" type="search" placeholder="Buscar producto..." aria-label="Buscar producto">
+        </label>
+      </div>
+
+      <div class="categories" id="categories" aria-label="Categorias del menu">
+        <button class="category active" type="button" data-category="Todos">Todos</button>
+        <button class="category" type="button" data-category="Hamburguesas">Hamburguesas</button>
+        <button class="category" type="button" data-category="Pollo">Pollo</button>
+        <button class="category" type="button" data-category="Papas">Papas</button>
+        <button class="category" type="button" data-category="Bebidas">Bebidas</button>
+        <button class="category" type="button" data-category="Postres">Postres</button>
+        <button class="category" type="button" data-category="Promociones">Combos</button>
+      </div>
+
+      <div class="products-grid" id="products-grid"></div>
+      <p class="empty-state" id="empty-state" hidden>No encontramos productos con esa descripcion.</p>
+    </section>
+
+    <section class="promotions-section" id="promociones">
+      <div class="promotion-heading">
+        <div>
+          <span class="eyebrow">Ahorra mas</span>
+          <h2>Combos especiales</h2>
+        </div>
+        <p>Las mejores combinaciones, listas para compartir o disfrutar.</p>
+      </div>
+
+      <div class="promotions-grid">
+        <article class="promotion-card promotion-card-featured" data-detail="12" role="button" tabindex="0" aria-label="Ver detalles del Combo Royal">
+          <div class="promotion-badge">Mas pedido</div>
+          <img src="imagenes/burger-doble.jpg" alt="Burger doble del Combo Royal">
+          <div class="promotion-card-content">
+            <span class="eyebrow">Oferta estrella</span>
+            <h3>Combo Royal</h3>
+            <p>Hamburguesa doble, papas grandes y bebida helada.</p>
+            <div class="promotion-card-footer">
+              <div><small>Antes <del>$16.50</del></small><strong>$12.99</strong></div>
+              <button class="secondary-button" type="button" data-promo="12">Agregar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="promotion-card promotion-card-dark" data-detail="13" role="button" tabindex="0" aria-label="Ver detalles del Duo Clasico">
+          <div class="promotion-card-copy">
+            <span class="eyebrow">Para compartir</span>
+            <h3>Duo Clasico</h3>
+            <p>Dos burgers clasicas con queso y vegetales frescos.</p>
+            <div class="promotion-card-footer">
+              <div><small>Ahorra 20%</small><strong>$21.50</strong></div>
+              <button class="secondary-button" type="button" data-promo="13">Agregar</button>
+            </div>
+          </div>
+          <img src="imagenes/burger-clasica.jpg" alt="Dos burgers clasicas con queso y vegetales">
+        </article>
+
+        <article class="promotion-card promotion-card-pink" data-detail="14" role="button" tabindex="0" aria-label="Ver detalles del Combo Pollo">
+          <img src="imagenes/pollo-crujiente.jpg" alt="Combo crujiente de pollo">
+          <div class="promotion-card-content">
+            <span class="eyebrow">Favorito crocante</span>
+            <h3>Combo Pollo</h3>
+            <p>Pollo crujiente, papas y limonada natural.</p>
+            <div class="promotion-card-footer">
+              <div><small>Nuevo combo</small><strong>$11.75</strong></div>
+              <button class="secondary-button" type="button" data-promo="14">Agregar</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about" id="nosotros">
+      <div class="about-story">
+        <span class="eyebrow">Nuestra historia</span>
+        <h2>Comida hecha para disfrutar</h2>
+        <p>Todo comenzo en una pequena cocina familiar, con una receta de hamburguesa que unia a amigos y vecinos alrededor de la mesa. Con el tiempo, aquella idea se convirtio en Food Delivery: un lugar donde cada plato conserva el sabor casero, pero llega a tu puerta con la rapidez que tiene tu dia.</p>
+        <p>Seleccionamos ingredientes frescos todas las semanas, cocinamos cada pedido al momento y cuidamos los detalles, desde el primer bocado hasta la ultima salsa. Hoy seguimos creciendo gracias a las personas que confian en nosotros, pero conservamos la misma promesa de siempre: preparar comida abundante, cercana y llena de sabor.</p>
+      </div>
+
+      <div class="reviews-header">
+        <div>
+          <span class="eyebrow">Comentarios reales</span>
+          <h2>Lo que dicen nuestros clientes</h2>
+        </div>
+        <div class="rating-summary" aria-label="Calificacion promedio: 4.9 de 5">
+          <strong>4.9</strong>
+          <div><span aria-hidden="true">★★★★★</span><small>Mas de 500 pedidos valorados</small></div>
+        </div>
+      </div>
+
+      <form class="review-form" id="review-form">
+        <div class="review-form-heading">
+          <div>
+            <span class="eyebrow">Comparte tu experiencia</span>
+            <h3>Escribe una resena</h3>
+          </div>
+          <fieldset class="star-rating" aria-label="Calificacion">
+            <legend>Tu calificacion</legend>
+            <input type="radio" id="star5" name="rating" value="5" checked><label for="star5" title="5 estrellas">★</label>
+            <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 estrellas">★</label>
+            <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 estrellas">★</label>
+            <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 estrellas">★</label>
+            <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 estrella">★</label>
+          </fieldset>
+        </div>
+        <div class="review-fields">
+          <label>Nombre
+            <input id="review-name" name="name" type="text" maxlength="40" required placeholder="Ej. Ana Lopez">
+          </label>
+          <label>Tu comentario
+            <textarea id="review-comment" name="comment" maxlength="300" required placeholder="Cuentanos que te parecio tu pedido..."></textarea>
+          </label>
+        </div>
+        <button class="primary-button" type="submit">Publicar resena</button>
+      </form>
+
+      <div class="reviews-grid">
+        <article class="review-card">
+          <div class="review-top">
+            <span class="review-avatar">MC</span>
+            <div><strong>Mariana Cruz</strong><small>Hace 2 dias</small></div>
+            <span class="review-stars" aria-label="5 estrellas">★★★★★</span>
+          </div>
+          <p>La Burger Doble llego caliente y muy jugosa. Las papas estaban crocantes y el repartidor fue rapidisimo. Ya es mi opcion favorita para las noches de pelicula.</p>
+        </article>
+
+        <article class="review-card featured-review">
+          <div class="review-top">
+            <span class="review-avatar">DP</span>
+            <div><strong>Diego Perez</strong><small>Hace 1 semana</small></div>
+            <span class="review-stars" aria-label="5 estrellas">★★★★★</span>
+          </div>
+          <p>Pedimos el Combo Royal para toda la familia y todo llego perfecto. Se nota que usan ingredientes frescos y cuidan el empaque. Excelente relacion calidad-precio.</p>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top">
+            <span class="review-avatar">VL</span>
+            <div><strong>Valeria Lopez</strong><small>Hace 3 semanas</small></div>
+            <span class="review-stars" aria-label="5 estrellas">★★★★★</span>
+          </div>
+          <p>Las papas con queso son irresistibles y la limonada tenia un sabor muy natural. El pedido llego antes de lo esperado y acompanaba muy bien con el brownie.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-overlay" id="cart-overlay" aria-hidden="true">
+    <button class="overlay-backdrop" id="close-cart-backdrop" type="button" aria-label="Cerrar carrito"></button>
+    <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <div class="cart-header">
+        <div><span class="eyebrow">Tu pedido</span><h2 id="cart-title">Carrito</h2></div>
+        <button class="icon-button" id="close-cart" type="button" aria-label="Cerrar">&#10005;</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-empty" id="cart-empty">
+        <span>&#128722;</span>
+        <h3>Tu carrito esta vacio</h3>
+        <p>Agrega algo delicioso para comenzar.</p>
+      </div>
+      <div class="cart-summary" id="cart-summary" hidden>
+        <div><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+        <div><span>Envio</span><strong id="delivery-cost">$2.50</strong></div>
+        <div class="total-row"><span>Total</span><strong id="total">$0.00</strong></div>
+        <button class="checkout-button" id="checkout-button" type="button">Continuar al pago</button>
+      </div>
+    </div>
+  </aside>
+
+  <dialog class="checkout-dialog" id="checkout-dialog">
+    <form id="checkout-form" method="dialog">
+      <div class="checkout-header">
+        <div><span class="eyebrow">Finalizar compra</span><h2>Datos de entrega</h2></div>
+        <button class="icon-button" id="close-checkout" type="button" aria-label="Cerrar">&#10005;</button>
+      </div>
+      <div class="form-grid">
+        <label>Nombre completo<input name="name" required autocomplete="name" placeholder="Ej. Ana Lopez"></label>
+        <label>Telefono<input name="phone" required autocomplete="tel" placeholder="Ej. 555-1234"></label>
+        <label class="full-width">Direccion de entrega<input name="address" required autocomplete="street-address" placeholder="Calle, numero y referencia"></label>
+        <fieldset class="full-width">
+          <legend>Metodo de pago</legend>
+          <label class="payment-option"><input type="radio" name="payment" value="Efectivo" checked><span>Efectivo</span></label>
+          <label class="payment-option"><input type="radio" name="payment" value="Tarjeta"><span>Tarjeta</span></label>
+          <label class="payment-option"><input type="radio" name="payment" value="Pago digital"><span>Pago digital</span></label>
+        </fieldset>
+      </div>
+      <div class="checkout-total"><span>Total a pagar</span><strong id="checkout-total">$0.00</strong></div>
+      <button class="checkout-button" type="submit">Confirmar pedido</button>
+    </form>
+  </dialog>
+
+  <dialog class="product-dialog" id="product-dialog">
+    <article class="product-detail-card">
+      <button class="icon-button detail-close" id="close-product-detail" type="button" aria-label="Cerrar detalle">&#10005;</button>
+      <img id="detail-image" src="" alt="">
+      <div class="product-detail-content">
+        <span class="eyebrow" id="detail-category"></span>
+        <h2 id="detail-name"></h2>
+        <p id="detail-description"></p>
+        <div class="detail-info">
+          <div><span>Preparacion</span><strong id="detail-preparation"></strong></div>
+          <div><span>Alergenos</span><strong id="detail-allergens"></strong></div>
+        </div>
+        <div class="detail-footer">
+          <strong id="detail-price">$0.00</strong>
+          <button class="primary-button" id="detail-add" type="button">Agregar al pedido</button>
+        </div>
+      </div>
+    </article>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="success-modal" id="success-modal" aria-hidden="true">
+    <div class="success-card" role="dialog" aria-modal="true" aria-labelledby="success-title">
+      <div class="success-icon">&#10003;</div>
+      <span class="eyebrow">Pedido recibido</span>
+      <h2 id="success-title">Tu pedido esta en camino</h2>
+      <p>Gracias por tu compra. Te avisaremos cuando salga para la entrega.</p>
+      <button class="primary-button" id="close-success" type="button">Listo</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
